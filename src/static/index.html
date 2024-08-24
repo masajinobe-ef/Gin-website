@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Привет, мир!</title>
+    <script>
+      function fetchHello() {
+        fetch("/hello")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("message").innerText = data.message;
+          })
+          .catch((error) => {
+            console.error("Ошибка:", error);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Добро пожаловать на мой сайт!</h1>
+    <p>Это простая HTML-страница, обслуживаемая с помощью Go и Gin.</p>
+    <button onclick="fetchHello()">Получить сообщение</button>
+    <p id="message"></p>
+  </body>
+</html>
